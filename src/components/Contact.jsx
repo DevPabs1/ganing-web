@@ -3,11 +3,17 @@ import React, { useState } from 'react';
 
 const Contact = () => {
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSend = () => {
+        if (!name.trim() || !email.trim() || !message.trim()) {
+            alert('Please fill in all fields (Name, Email, and Message) before sending.');
+            return;
+        }
+
         const subject = encodeURIComponent(`${name} + Ganing Project`);
-        const body = encodeURIComponent(message);
+        const body = encodeURIComponent(`From: ${email}\n\n${message}`);
         const mailtoLink = `mailto:wallstreetinquries@gmail.com?subject=${subject}&body=${body}`;
 
         window.location.href = mailtoLink;
@@ -44,7 +50,13 @@ const Contact = () => {
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                                <input type="email" className="w-full bg-neutral-900 border border-neutral-800 p-4 text-white focus:outline-none focus:border-white transition-colors" placeholder="your@email.com" />
+                                <input
+                                    type="email"
+                                    className="w-full bg-neutral-900 border border-neutral-800 p-4 text-white focus:outline-none focus:border-white transition-colors"
+                                    placeholder="your@email.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
