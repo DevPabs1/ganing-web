@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -8,17 +9,26 @@ const Header = () => {
         <a href="#" className="text-2xl font-bold tracking-tighter text-black">
           GANING
         </a>
-        
+
         <nav className="hidden md:flex items-center space-x-10">
+          <Link to="/" className="text-sm font-medium text-gray-600 hover:text-black transition-colors tracking-wide">
+            Home
+          </Link>
           {['Projects', 'About', 'Gallery', 'Contact'].map((item) => (
-            <a 
+            <a
               key={item}
-              href={`#${item.toLowerCase()}`} 
+              href={`/#${item.toLowerCase()}`}
               className="text-sm font-medium text-gray-600 hover:text-black transition-colors tracking-wide"
             >
               {item}
             </a>
           ))}
+          <Link
+            to="/appointment"
+            className="px-5 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
+          >
+            Book Now
+          </Link>
         </nav>
 
         <button className="md:hidden p-2 text-gray-600 hover:text-black">
