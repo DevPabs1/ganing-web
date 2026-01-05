@@ -1,12 +1,7 @@
 
 import React from 'react';
-
-const galleries = [
-    { title: "Shapes & Structures", image: "https://images.unsplash.com/photo-1516893842880-5d8aafa7cc4a?q=80&w=2800&auto=format&fit=crop" },
-    { title: "Beautiful People", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2800&auto=format&fit=crop" },
-    { title: "Madame Nature", image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2800&auto=format&fit=crop" },
-    { title: "What I See on the Street", image: "https://images.unsplash.com/photo-1476900543704-4312b78632f8?q=80&w=2800&auto=format&fit=crop" }
-];
+import { Link } from 'react-router-dom';
+import { galleries } from '../data';
 
 const Gallery = () => {
     return (
@@ -16,7 +11,7 @@ const Gallery = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {galleries.map((item) => (
-                        <div key={item.title} className="relative aspect-square group overflow-hidden cursor-pointer">
+                        <Link to={`/gallery/${item.id}`} key={item.id} className="relative aspect-square group overflow-hidden cursor-pointer block">
                             <img
                                 src={item.image}
                                 alt={item.title}
@@ -27,7 +22,7 @@ const Gallery = () => {
                                     {item.title}
                                 </h3>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
