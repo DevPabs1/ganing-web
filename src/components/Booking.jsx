@@ -26,14 +26,14 @@ const Booking = () => {
                         with your own username/event-link. 
                     */}
                     <iframe
-                        src="https://cal.com/rick/get-your-rick-roll"
+                        src="https://cal.com/wall-street-wdigal"
                         width="100%"
                         height="100%"
                         frameBorder="0"
                         title="Book an Appointment"
                     ></iframe>
                 </div>
-                
+
                 <div className="mt-8 text-center text-sm text-gray-400">
                     <p>Powered by Google Calendar Sync</p>
                 </div>
