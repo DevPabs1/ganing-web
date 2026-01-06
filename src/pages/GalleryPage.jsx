@@ -24,7 +24,7 @@ const GalleryPage = () => {
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 animate-float"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                                 <span className="text-white/60 text-sm font-mono mb-2">0{index + 1}</span>
