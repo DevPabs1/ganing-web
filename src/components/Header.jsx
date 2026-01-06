@@ -6,23 +6,23 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-500">
       <div className="max-w-[90rem] mx-auto px-8 md:px-12 h-24 flex items-center justify-between">
-        <a href="#" className="text-3xl font-extrabold tracking-tighter text-black hover:opacity-80 transition-opacity">
+        <Link to="/" className="text-3xl font-extrabold tracking-tighter text-black hover:opacity-80 transition-opacity">
           GANING
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center space-x-12">
-          <Link to="/" className="text-base font-medium text-gray-500 hover:text-black transition-colors">
-            Home
+          <Link to="/projects" className="text-base font-medium text-gray-500 hover:text-black transition-colors">
+            Projects
           </Link>
-          {['Projects', 'About', 'Gallery', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`/#${item.toLowerCase()}`}
-              className="text-base font-medium text-gray-500 hover:text-black transition-colors"
-            >
-              {item}
-            </a>
-          ))}
+          <Link to="/about" className="text-base font-medium text-gray-500 hover:text-black transition-colors">
+            About
+          </Link>
+          <Link to="/gallery" className="text-base font-medium text-gray-500 hover:text-black transition-colors">
+            Gallery
+          </Link>
+          <Link to="/contact" className="text-base font-medium text-gray-500 hover:text-black transition-colors">
+            Contact
+          </Link>
           <Link
             to="/appointment"
             className="px-7 py-3 bg-black text-white text-base font-semibold rounded-full hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-gray-200"
