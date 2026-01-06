@@ -2,77 +2,107 @@
 export const projects = [
     {
         id: 1,
-        title: "One & Only Cape Town",
-        category: "Hospitality",
-        location: "Cape Town, 2025",
-        image: "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=2940&auto=format&fit=crop",
-        description: "A stunning resort destination capturing the essence of Cape Town's vibrant atmosphere. This project focused on the seamless integration of luxury living with the natural beauty of Table Mountain's backdrop. The photography highlights the interplay of natural light with the resort's contemporary African design."
+        title: 'Ethereal Geometry',
+        category: 'Abstract',
+        location: 'Digital Space',
+        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+        description: 'A study of geometric forms in a void. This series explores how light interacts with digital matter.'
     },
     {
         id: 2,
-        title: "L7 Hotel Hanoi by Lotte",
-        category: "Architecture",
-        location: "Hanoi, 2025",
-        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2940&auto=format&fit=crop",
-        description: "Modern elegance meets traditional Vietnamese charm in the heart of Hanoi. The visual narrative for L7 Hotel emphasizes its towering presence and the intricate details of its interior spaces, designed to offer a sanctuary amidst the bustling city."
+        title: 'Glass Prism',
+        category: 'Interior',
+        location: 'Virtual Gallery',
+        image: 'https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=2525&auto=format&fit=crop',
+        description: 'Refractions and reflections. A virtual gallery space designed to challenge perception.'
     },
     {
         id: 3,
-        title: "The Meru Sanur",
-        category: "Landscape",
-        location: "Bali, 2025",
-        image: "https://images.unsplash.com/photo-1573108724029-4c46571d6490?q=80&w=2940&auto=format&fit=crop",
-        description: "A beachfront sanctuary in Bali that embodies tranquility. The photography captures the lush tropical landscapes, the open-air architectural philosophy, and the serene moments that define the guest experience at The Meru."
+        title: 'Fluid Architect',
+        category: 'Hospitality',
+        location: 'Metaverse',
+        image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
+        description: 'Liquid architecture for a digital age. Organic shapes meet neon lighting.'
     },
     {
         id: 4,
-        title: "Pan Pacific Jakarta",
-        category: "Interior",
-        location: "Jakarta, 2025",
-        image: "https://images.unsplash.com/photo-1596436807771-760241b7f914?q=80&w=2940&auto=format&fit=crop",
-        description: "Capturing the skyline-defining architecture of Pan Pacific Jakarta. This series focuses on the sleek glass facades, the grand lobby spaces, and the panoramic views of the city, showcasing the hotel as a beacon of modern luxury."
+        title: 'Chrome Structure',
+        category: 'Industrial',
+        location: 'Render Studio',
+        image: 'https://images.unsplash.com/photo-1614850523060-8da1d56ae167?q=80&w=2670&auto=format&fit=crop',
+        description: 'Metallic surfaces and harsh lighting. An industrial exploration of digital materials.'
     },
     {
         id: 5,
-        title: "Wyndham Grand Busan",
-        category: "Hospitality",
-        location: "Busan, 2025",
-        image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2940&auto=format&fit=crop",
-        description: "Located on the coast of Busan, this hotel offers breathtaking ocean views. Our work highlighted the connection between the built environment and the sea, focusing on the curved architectural lines that mimic the waves."
+        title: 'Neon Void',
+        category: 'Abstract',
+        location: 'Cyber District',
+        image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop',
+        description: 'Darkness punctuated by light. A moody, atmospheric series set in a digital void.'
     },
     {
         id: 6,
-        title: "Padma Hotel Bandung",
-        category: "Landscape",
-        location: "Bandung, 2025",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2940&auto=format&fit=crop",
-        description: "Nestled in the lush hills of Bandung, this property is a retreat into nature. The photography emphasizes the greenery, the infinity pools overlooking the valley, and the warm, inviting interior design."
+        title: 'Soft Clay',
+        category: 'Interior',
+        location: 'Concept Space',
+        image: 'https://images.unsplash.com/photo-1614851099511-773084f6911d?q=80&w=2670&auto=format&fit=crop',
+        description: 'Minimalist forms and soft textures. A calming visual experience.'
     }
 ];
 
 export const galleries = [
     {
-        id: "shapes",
-        title: "Shapes & Structures",
-        image: "https://images.unsplash.com/photo-1516893842880-5d8aafa7cc4a?q=80&w=2800&auto=format&fit=crop",
-        description: "An exploration of geometry in the built environment. This collection focuses on lines, angles, and the abstract forms created by modern architecture."
+        id: 'shapes',
+        title: 'Flow State',
+        image: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=2574&auto=format&fit=crop',
+        date: 'Jan 2024'
     },
     {
-        id: "people",
-        title: "Beautiful People",
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2800&auto=format&fit=crop",
-        description: "Portraits and candid moments that capture the human spirit. A study of emotion, expression, and the stories found in faces."
+        id: 'flora',
+        title: 'Digital Flora',
+        image: 'https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=2525&auto=format&fit=crop',
+        date: 'Dec 2023'
     },
     {
-        id: "nature",
-        title: "Madame Nature",
-        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2800&auto=format&fit=crop",
-        description: "The raw and untamed beauty of the natural world. From misty mountains to dense forests, this gallery celebrates the planet's landscapes."
+        id: 'texture',
+        title: 'Cyber Texture',
+        image: 'https://images.unsplash.com/photo-1617791160536-598cf32026fb?q=80&w=2564&auto=format&fit=crop',
+        date: 'Nov 2023'
     },
     {
-        id: "street",
-        title: "What I See on the Street",
-        image: "https://images.unsplash.com/photo-1476900543704-4312b78632f8?q=80&w=2800&auto=format&fit=crop",
-        description: "Urban life in motion. Capturing the chaotic yet rhythmic energy of city streets, from bustling markets to quiet alleyways."
+        id: 'glass',
+        title: 'Glass Distortion',
+        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+        date: 'Oct 2023'
+    },
+    {
+        id: 'form',
+        title: 'Abstract Form',
+        image: 'https://images.unsplash.com/photo-1614850523296-63fc7524e736?q=80&w=2670&auto=format&fit=crop',
+        date: 'Sep 2023'
+    },
+    {
+        id: 'harmony',
+        title: 'Geometric Harmony',
+        image: 'https://images.unsplash.com/photo-1614853316476-de00d14cb1fc?q=80&w=2670&auto=format&fit=crop',
+        date: 'Aug 2023'
+    },
+    {
+        id: 'color',
+        title: 'Color Study',
+        image: 'https://images.unsplash.com/photo-1614850523018-c4dc3c17822d?q=80&w=2670&auto=format&fit=crop',
+        date: 'Jul 2023'
+    },
+    {
+        id: 'light',
+        title: 'Light Path',
+        image: 'https://images.unsplash.com/photo-1614850523060-8da1d56ae167?q=80&w=2670&auto=format&fit=crop',
+        date: 'Jun 2023'
+    },
+    {
+        id: 'space',
+        title: 'Deep Space',
+        image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop',
+        date: 'May 2023'
     }
 ];

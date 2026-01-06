@@ -42,7 +42,7 @@ const ProjectsPage = () => {
                 </div>
             </div>
 
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 [perspective:1000px]">
                 {filteredProjects.map((project, index) => (
                     <Link
                         to={`/project/${project.id}`}
