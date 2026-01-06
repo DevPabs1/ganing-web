@@ -4,35 +4,35 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold tracking-tighter text-black">
+    <header className="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-500">
+      <div className="max-w-[90rem] mx-auto px-8 md:px-12 h-24 flex items-center justify-between">
+        <a href="#" className="text-3xl font-extrabold tracking-tighter text-black hover:opacity-80 transition-opacity">
           GANING
         </a>
 
-        <nav className="hidden md:flex items-center space-x-10">
-          <Link to="/" className="text-sm font-medium text-gray-600 hover:text-black transition-colors tracking-wide">
+        <nav className="hidden md:flex items-center space-x-12">
+          <Link to="/" className="text-base font-medium text-gray-500 hover:text-black transition-colors">
             Home
           </Link>
           {['Projects', 'About', 'Gallery', 'Contact'].map((item) => (
             <a
               key={item}
               href={`/#${item.toLowerCase()}`}
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors tracking-wide"
+              className="text-base font-medium text-gray-500 hover:text-black transition-colors"
             >
               {item}
             </a>
           ))}
           <Link
             to="/appointment"
-            className="px-5 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
+            className="px-7 py-3 bg-black text-white text-base font-semibold rounded-full hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-gray-200"
           >
-            Book Now
+            Book Session
           </Link>
         </nav>
 
-        <button className="md:hidden p-2 text-gray-600 hover:text-black">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button className="md:hidden p-2 text-black hover:bg-gray-100 rounded-full transition-colors">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>

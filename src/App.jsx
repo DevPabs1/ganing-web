@@ -11,6 +11,8 @@ import ProjectDetail from './components/ProjectDetail';
 import GalleryDetail from './components/GalleryDetail';
 import Booking from './components/Booking';
 
+import Footer from './components/Footer';
+
 // Main Layout Component for Home Page
 const Home = () => (
   <div className="font-sans text-black bg-white selection:bg-black selection:text-white">
@@ -20,20 +22,20 @@ const Home = () => (
       <Projects />
       <About />
       <Gallery />
+      <Contact />
     </main>
-    <Contact />
+    <Footer />
   </div>
 );
 
-// Layout for Detail Pages (reuses Header/Contact or simplified?)
-// Let's reuse the simple layout wrapped around children
+// Layout for Detail Pages
 const Layout = ({ children }) => (
   <div className="font-sans text-black bg-white selection:bg-black selection:text-white">
     <Header />
     <main>
       {children}
     </main>
-    <Contact />
+    <Footer />
   </div>
 );
 

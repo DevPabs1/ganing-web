@@ -1,0 +1,115 @@
+/* Custom Booking Styles */
+
+/* --- Layout & Container --- */
+.booking-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .booking-container {
+    grid-template-columns: 1.2fr 0.8fr; /* Calendar takes slightly more space */
+    align-items: start;
+  }
+}
+
+/* --- Calendar Card --- */
+.react-datepicker {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  border: none !important;
+  width: 100% !important;
+  font-size: 1rem !important;
+}
+
+.react-datepicker__header {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  padding-top: 1.5rem !important;
+}
+
+.react-datepicker__current-month {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.5rem !important;
+  color: #1a1a1a !important;
+}
+
+.react-datepicker__day-names {
+  margin-bottom: 0.5rem !important;
+}
+
+.react-datepicker__day-name {
+  width: 3rem !important;
+  line-height: 3rem !important;
+  color: #9ca3af !important;
+  font-weight: 500 !important;
+}
+
+.react-datepicker__month-container {
+  width: 100% !important;
+  float: none !important;
+}
+
+.react-datepicker__day {
+  width: 3rem !important;
+  line-height: 3rem !important;
+  margin: 0.2rem !important;
+  border-radius: 50% !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+  transform: scale(1.1);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #111827 !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.react-datepicker__day--today {
+  font-weight: 700 !important;
+  color: #111827;
+}
+
+.react-datepicker__day--disabled {
+  color: #e5e7eb !important;
+  pointer-events: none;
+}
+
+.react-datepicker__navigation {
+  top: 1.5rem !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #111827 !important;
+  border-width: 2px 2px 0 0 !important;
+  height: 10px !important;
+  width: 10px !important;
+}
+
+/* --- Time Slots --- */
+.slot-button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slot-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Smooth Fade In --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}

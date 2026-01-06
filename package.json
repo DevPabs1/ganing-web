@@ -2,8 +2,10 @@
   "name": "ganing-web",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://DevPabs1.github.io/ganing-web",
   "type": "module",
   "scripts": {
+    "start": "node server/index.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -12,7 +14,15 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "googleapis": "^169.0.0",
+    "nodemailer": "^7.0.12",
     "react": "^19.2.0",
+    "react-datepicker": "^9.1.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0"
   },
