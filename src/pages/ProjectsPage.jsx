@@ -18,7 +18,7 @@ const ProjectsPage = () => {
     }, [filter]);
 
     return (
-        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto opacity-0 animate-fadeIn" style={{ animationFillMode: 'forwards' }}>
+        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto">
             <div className="mb-16">
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">Selected Works</h1>
                 <p className="text-xl text-gray-500 max-w-2xl">
@@ -32,8 +32,8 @@ const ProjectsPage = () => {
                             key={cat}
                             onClick={() => setFilter(cat)}
                             className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${filter === cat
-                                    ? 'bg-black text-white'
-                                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                                ? 'bg-black text-white'
+                                : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                                 }`}
                         >
                             {cat}

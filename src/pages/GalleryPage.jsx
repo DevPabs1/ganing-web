@@ -4,7 +4,7 @@ import { galleries } from '../data';
 
 const GalleryPage = () => {
     return (
-        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto opacity-0 animate-fadeIn" style={{ animationFillMode: 'forwards' }}>
+        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto">
             <div className="mb-16">
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">Visual Journal</h1>
                 <p className="text-xl text-gray-500 max-w-2xl">

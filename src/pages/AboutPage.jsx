@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
     return (
-        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto opacity-0 animate-fadeIn" style={{ animationFillMode: 'forwards' }}>
+        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto">
             {/* Header */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
                 <div>

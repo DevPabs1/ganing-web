@@ -21,7 +21,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto opacity-0 animate-fadeIn" style={{ animationFillMode: 'forwards' }}>
+        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
 
                 {/* Left Column: Info */}
