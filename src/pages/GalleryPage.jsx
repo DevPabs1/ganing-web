@@ -14,7 +14,12 @@ const GalleryPage = () => {
 
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                 {galleries.map((item, index) => (
-                    <Link to={`/gallery/${item.id}`} key={item.id} className="group block relative overflow-hidden rounded-xl break-inside-avoid">
+                    <Link
+                        to={`/gallery/${item.id}`}
+                        key={item.id}
+                        className="group block relative overflow-hidden rounded-xl break-inside-avoid opacity-0 animate-fadeIn hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out"
+                        style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+                    >
                         <div className="relative">
                             <img
                                 src={item.image}

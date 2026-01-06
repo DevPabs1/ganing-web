@@ -44,7 +44,12 @@ const ProjectsPage = () => {
 
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                 {filteredProjects.map((project, index) => (
-                    <Link to={`/project/${project.id}`} key={project.id} className="group block tracking-wide relative overflow-hidden rounded-xl break-inside-avoid">
+                    <Link
+                        to={`/project/${project.id}`}
+                        key={project.id}
+                        className="group block tracking-wide relative overflow-hidden rounded-xl break-inside-avoid opacity-0 animate-fadeIn hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out"
+                        style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+                    >
                         <div className="relative overflow-hidden w-full">
                             <img
                                 src={project.image}
