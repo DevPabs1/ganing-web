@@ -53,9 +53,9 @@ const Projects = () => {
                 </div>
 
                 <div className="mt-24 text-center">
-                    <a href="#" className="inline-block border-b-2 border-black pb-1 text-xl font-medium hover:text-gray-600 transition-colors">
+                    <Link to="/projects" className="inline-block border-b-2 border-black pb-1 text-xl font-medium hover:text-gray-600 transition-colors">
                         View All Projects
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
