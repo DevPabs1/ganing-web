@@ -7,15 +7,22 @@ const LoginPage = () => {
     const [searchParams] = useSearchParams();
     const { login } = useAuth();
     const navigate = useNavigate();
-    const error = searchParams.get('error');
-    const token = searchParams.get('token');
-    const username = searchParams.get('username');
+
+    // Check both router params (if inside hash) and window.location (if outside hash)
+    const query = new URLSearchParams(window.location.search);
+    const hashQuery = searchParams;
+
+    const error = hashQuery.get('error') || query.get('error');
+    const token = hashQuery.get('token') || query.get('token');
+    const username = hashQuery.get('username') || query.get('username');
 
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
     useEffect(() => {
         if (token && username) {
             login({ token, username });
+            // Clear the query string from the URL to look cleaner
+            window.history.replaceState({}, document.title, window.location.pathname + '#/');
             navigate('/');
         }
     }, [token, username, login, navigate]);

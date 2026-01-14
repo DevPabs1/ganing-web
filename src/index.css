@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,12 +11,25 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-white text-mekari-text antialiased;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-mekari-dark font-bold tracking-tight;
   }
 }
 
 @layer utilities {
   .glass-nav {
-    @apply bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm supports-[backdrop-filter]:bg-white/60;
+    @apply bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300;
+  }
+  
+  .mekari-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
   }
 }

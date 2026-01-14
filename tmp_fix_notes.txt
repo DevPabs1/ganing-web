@@ -1,0 +1,6 @@
+
+// Helper for base path
+const BASE_URL = '/ganing-web';
+
+// Or I can just hardcode it since it's simple
+// /ganing-web/assets/3d/...

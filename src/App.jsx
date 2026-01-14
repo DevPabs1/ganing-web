@@ -10,6 +10,9 @@ import ProjectDetail from './components/ProjectDetail';
 import GalleryDetail from './components/GalleryDetail';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
+import LogoGrid from './components/LogoGrid';
+import StatsSection from './components/StatsSection';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 // New Pages
 import ProjectsPage from './pages/ProjectsPage';
@@ -71,16 +74,19 @@ const Home = () => (
     exit="exit"
     variants={pageVariants}
     transition={pageTransition}
-    className="font-sans text-black bg-white selection:bg-black selection:text-white"
+    className="font-sans text-mekari-text bg-white selection:bg-mekari-blue selection:text-white"
   >
     <Header />
     <main>
       <Hero />
+      <LogoGrid />
+      <StatsSection />
       <Projects />
-      <About />
       <Gallery />
+      <About />
       <Contact />
     </main>
+    <WhatsAppWidget />
     <Footer />
   </motion.div>
 );

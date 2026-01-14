@@ -2,107 +2,95 @@
 export const projects = [
     {
         id: 1,
-        title: 'Ethereal Geometry',
-        category: 'Abstract',
-        location: 'Digital Space',
-        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
-        description: 'A study of geometric forms in a void. This series explores how light interacts with digital matter.'
+        title: 'Ganing Jurnal',
+        category: 'Finance',
+        location: 'Cloud Accounting',
+        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2622&auto=format&fit=crop',
+        description: 'Software akuntansi online terintegrasi untuk bisnis Anda. Kelola pembukuan, stok barang, hingga laporan keuangan secara real-time.'
     },
     {
         id: 2,
-        title: 'Glass Prism',
-        category: 'Interior',
-        location: 'Virtual Gallery',
-        image: 'https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=2525&auto=format&fit=crop',
-        description: 'Refractions and reflections. A virtual gallery space designed to challenge perception.'
+        title: 'Ganing Talenta',
+        category: 'HR & Payroll',
+        location: 'HRIS System',
+        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop',
+        description: 'Software HRIS dan payroll otomatis. Sederhanakan manajemen kehadiran, cuti, lembur, dan penggajian karyawan.'
     },
     {
         id: 3,
-        title: 'Fluid Architect',
-        category: 'Hospitality',
-        location: 'Metaverse',
-        image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
-        description: 'Liquid architecture for a digital age. Organic shapes meet neon lighting.'
+        title: 'Ganing Klikpajak',
+        category: 'Tax',
+        location: 'Tax Management',
+        image: 'https://images.unsplash.com/photo-1554224154-260312cb22f7?q=80&w=2622&auto=format&fit=crop',
+        description: 'Aplikasi pajak online mitra resmi DJP. Hitung, bayar, dan lapor pajak perusahaan lebih mudah dan aman.'
     },
     {
         id: 4,
-        title: 'Chrome Structure',
-        category: 'Industrial',
-        location: 'Render Studio',
-        image: 'https://images.unsplash.com/photo-1614850523060-8da1d56ae167?q=80&w=2670&auto=format&fit=crop',
-        description: 'Metallic surfaces and harsh lighting. An industrial exploration of digital materials.'
+        title: 'Ganing Qontak',
+        category: 'CRM',
+        location: 'Omnichannel CRM',
+        image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=2573&auto=format&fit=crop',
+        description: 'Aplikasi CRM omnichannel dan WhatsApp API resmi. Tingkatkan penjualan dan layanan pelanggan dalam satu platform.'
     },
     {
         id: 5,
-        title: 'Neon Void',
-        category: 'Abstract',
-        location: 'Cyber District',
-        image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop',
-        description: 'Darkness punctuated by light. A moody, atmospheric series set in a digital void.'
+        title: 'Ganing Sign',
+        category: 'Productivity',
+        location: 'E-Signature',
+        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop',
+        description: 'Tanda tangan digital resmi dan tersertifikasi PSrE. Amankan dokumen bisnis Anda secara legal dan efisien.'
     },
     {
         id: 6,
-        title: 'Soft Clay',
-        category: 'Interior',
-        location: 'Concept Space',
-        image: 'https://images.unsplash.com/photo-1614851099511-773084f6911d?q=80&w=2670&auto=format&fit=crop',
-        description: 'Minimalist forms and soft textures. A calming visual experience.'
+        title: 'Ganing Benefits',
+        category: 'HR',
+        location: 'Employee Benefits',
+        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2670&auto=format&fit=crop',
+        description: 'Platform pengelolaan tunjangan karyawan yang fleksibel. Berikan akses ke asuransi, pinjaman, dan benefit lainnya.'
     }
 ];
 
 export const galleries = [
     {
-        id: 'shapes',
-        title: 'Flow State',
-        image: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2670&auto=format&fit=crop',
-        date: 'Jan 2024'
+        id: 'finance-guide',
+        title: 'Panduan Lengkap Manajemen Arus Kas 2026',
+        category: 'E-Book',
+        image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=2070&auto=format&fit=crop',
+        date: '14 Jan 2026'
     },
     {
-        id: 'flora',
-        title: 'Digital Flora',
-        image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop',
-        date: 'Dec 2023'
+        id: 'hr-trends',
+        title: 'Tren HRIS dan Masa Depan Kerja Remote',
+        category: 'Artikel',
+        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop',
+        date: '10 Jan 2026'
     },
     {
-        id: 'texture',
-        title: 'Cyber Texture',
-        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop',
-        date: 'Nov 2023'
+        id: 'tax-update',
+        title: 'Update Regulasi Pajak PPN & PPh Terbaru',
+        category: 'Webinar',
+        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop',
+        date: '05 Jan 2026'
     },
     {
-        id: 'glass',
-        title: 'Glass Distortion',
-        image: 'https://images.unsplash.com/photo-1506729623306-b5a934d88b53?q=80&w=2670&auto=format&fit=crop',
-        date: 'Oct 2023'
+        id: 'crm-strategy',
+        title: 'Meningkatkan Retensi Pelanggan dengan CRM',
+        category: 'Studi Kasus',
+        image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=2573&auto=format&fit=crop',
+        date: '01 Jan 2026'
     },
     {
-        id: 'form',
-        title: 'Abstract Form',
-        image: 'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=2670&auto=format&fit=crop',
-        date: 'Sep 2023'
+        id: 'digital-trans',
+        title: 'Transformasi Digital untuk UMKM Indonesia',
+        category: 'Artikel',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop',
+        date: '28 Dec 2025'
     },
     {
-        id: 'harmony',
-        title: 'Geometric Harmony',
-        image: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=2670&auto=format&fit=crop',
-        date: 'Aug 2023'
-    },
-    {
-        id: 'color',
-        title: 'Color Study',
-        image: 'https://images.unsplash.com/photo-1505968409348-bd000797c92e?q=80&w=2670&auto=format&fit=crop',
-        date: 'Jul 2023'
-    },
-    {
-        id: 'light',
-        title: 'Light Path',
-        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=2670&auto=format&fit=crop',
-        date: 'Jun 2023'
-    },
-    {
-        id: 'space',
-        title: 'Deep Space',
-        image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2670&auto=format&fit=crop',
-        date: 'May 2023'
+        id: 'security',
+        title: 'Keamanan Data di Era Cloud Computing',
+        category: 'Whitepaper',
+        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop',
+        date: '20 Dec 2025'
     }
 ];

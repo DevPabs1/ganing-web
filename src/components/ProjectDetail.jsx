@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data';
+import ProductHero from './ProductHero';
+import StickyNav from './StickyNav';
+import FeatureZigZag from './FeatureZigZag';
 
 const ProjectDetail = () => {
     const { id } = useParams();
@@ -14,88 +17,87 @@ const ProjectDetail = () => {
         return (
             <div className="min-h-screen flex items-center justify-center bg-white">
                 <div className="text-center">
-                    <h2 className="text-4xl font-bold mb-6">Project Not Found</h2>
-                    <Link to="/" className="text-lg underline underline-offset-4 hover:text-gray-600 transition-colors">Return Home</Link>
+                    <h2 className="text-4xl font-bold mb-6 text-mekari-dark">Project Not Found</h2>
+                    <Link to="/" className="text-mekari-blue font-bold hover:underline">Return Home</Link>
                 </div>
             </div>
         );
     }
 
+    // Mock data to simulate rich content for each project
+    const sections = [
+        { id: 'overview', label: 'Ringkasan' },
+        { id: 'features', label: 'Fitur Unggulan' },
+        { id: 'specs', label: 'Spesifikasi' },
+        { id: 'reviews', label: 'Testimoni' },
+    ];
+
+    // Generate dynamic features based on the project content
+    const features = [
+        {
+            id: 'overview',
+            tagline: 'Ringkasan Project',
+            title: `Tentang ${project.title}`,
+            description: `<p class="mb-4">${project.description || 'Solusi komprehensif untuk kebutuhan bisnis modern Anda.'}</p><p>Project ini dirancang dengan pendekatan user-centric untuk memastikan kemudahan penggunaan dan skalabilitas maksimal.</p>`,
+            image: project.image,
+        },
+        {
+            id: 'features',
+            tagline: 'Teknologi Terkini',
+            title: 'Integrasi Tanpa Batas',
+            description: 'Hubungkan seluruh ekosistem digital Anda dalam satu platform terpadu. Dukungan API yang lengkap memudahkan sinkronisasi data antar aplikasi.',
+            image: null, // Will show placeholder or reuse image
+            link: '#'
+        },
+        {
+            id: 'specs',
+            tagline: 'Keamanan Tingkat Enterprise',
+            title: 'Standar Keamanan Internasional',
+            description: 'Kami memprioritaskan keamanan data Anda dengan enkripsi end-to-end dan kepatuhan terhadap standar ISO 27001.',
+            image: null
+        }
+    ];
+
     return (
         <div className="bg-white min-h-screen">
-            {/* Hero Image */}
-            <div className="w-full h-[60vh] md:h-[80vh] bg-gray-100 relative overflow-hidden">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
-                    <div className="max-w-[90rem] mx-auto">
-                        <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors text-sm tracking-widest uppercase">
-                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            Back to Works
-                        </Link>
-                        <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-bold text-white tracking-tighter leading-[0.9] mb-4">
-                            {project.title}
-                        </h1>
-                        <p className="text-2xl md:text-3xl text-white/90 font-light">{project.location}</p>
-                    </div>
-                </div>
+            {/* 1. Product Hero */}
+            <ProductHero
+                title={project.title}
+                description={`Solusi "${project.location}" terbaik untuk mengakselerasi pertumbuhan bisnis Anda. Dapatkan visibilitas penuh dan kontrol yang lebih baik.`}
+                benefits={[
+                    "Otomatisasi proses bisnis hingga 80%",
+                    "Laporan real-time dan analitik mendalam",
+                    "Dukungan teknis prioritas 24/7",
+                    "Integrasi mudah dengan sistem yang ada"
+                ]}
+                image={project.image}
+                ctaPrimary={{ text: "Jadwalkan Demo", link: "/appointment" }}
+                ctaSecondary={{ text: "Lihat Dokumentasi", action: () => alert("Documentation coming soon!") }}
+            />
+
+            {/* 2. Sticky Sub-Nav */}
+            <StickyNav sections={sections} />
+
+            {/* 3. Feature Zig-Zag */}
+            <div className="py-10">
+                <FeatureZigZag features={features} />
             </div>
 
-            <div className="max-w-[90rem] mx-auto px-8 md:px-16 py-24 md:py-32">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-                    {/* Sticky Details */}
-                    <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit space-y-12">
-                        <div>
-                            <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-4">Client</h3>
-                            <p className="text-xl font-medium">Private Commission</p>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-4">Services</h3>
-                            <p className="text-xl font-medium">Photography, Art Direction</p>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-4">Year</h3>
-                            <p className="text-xl font-medium">2023</p>
-                        </div>
-
-                        <div className="pt-8 border-t border-gray-100">
-                            <button className="w-full bg-black text-white px-8 py-4 font-bold tracking-widest uppercase text-sm hover:bg-gray-800 transition-all shadow-lg rounded-sm">
-                                Start a Project
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Main Content */}
-                    <div className="lg:col-span-8">
-                        <div className="prose prose-2xl prose-gray max-w-none font-light leading-relaxed">
-                            <h2 className="text-4xl font-bold text-black tracking-tight mb-8">The Concept</h2>
-                            <p className="mb-12">
-                                {project.description || "Every space tells a story. In this project, we aimed to capture the silent dialogue between light and architecture, revealing the subtle textures and forms that often go unnoticed."}
-                            </p>
-
-                            <p>
-                                The approach was minimalist yet profound, focusing on the interplay of natural light throughout the day. By carefully framing each shot, we highlighted the structural integrity and the emotional resonance of the space.
-                            </p>
-                        </div>
-
-                        {/* Additional Images Grid (Placeholder) */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-24">
-                            <div className="bg-gray-100 aspect-[3/4] rounded-lg overflow-hidden">
-                                <img src={project.image} alt="Detail 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                            </div>
-                            <div className="bg-gray-100 aspect-[3/4] rounded-lg overflow-hidden mt-16">
-                                <img src={project.image} alt="Detail 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                            </div>
-                        </div>
-                    </div>
+            {/* 4. Bottom CTA */}
+            <section className="py-24 bg-mekari-blue text-center">
+                <div className="container-custom">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Siap Trasformasi Bisnis Anda?</h2>
+                    <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
+                        Bergabunglah dengan ribuan perusahaan yang telah mempercayakan pertumbuhan mereka pada solusi kami.
+                    </p>
+                    <Link
+                        to="/appointment"
+                        className="inline-block px-8 py-4 bg-white text-mekari-blue font-bold rounded-xl shadow-lg hover:bg-gray-50 transition-all hover:-translate-y-1"
+                    >
+                        Konsultasi Gratis Sekarang
+                    </Link>
                 </div>
-            </div>
+            </section>
         </div>
     );
 };

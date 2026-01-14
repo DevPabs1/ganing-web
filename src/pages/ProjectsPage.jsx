@@ -18,64 +18,77 @@ const ProjectsPage = () => {
     }, [filter]);
 
     return (
-        <div className="pt-32 pb-20 px-4 md:px-12 max-w-[90rem] mx-auto">
-            <div className="mb-16">
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">Selected Works</h1>
-                <p className="text-xl text-gray-500 max-w-2xl">
-                    A curated collection of architectural and interior photography, capturing the essence of spaces across the globe.
-                </p>
+        <div className="pt-32 pb-20 px-4 md:px-12 bg-white">
+            <div className="container-custom">
+                <div className="mb-16 text-center max-w-3xl mx-auto">
+                    <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-50 text-mekari-blue text-xs font-bold uppercase tracking-wider">
+                        Ekosistem Produk
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-mekari-dark mb-6">
+                        Solusi Terintegrasi untuk Bisnis Anda
+                    </h1>
+                    <p className="text-xl text-gray-500 leading-relaxed">
+                        Temukan aplikasi yang tepat untuk mengotomatisasi setiap aspek operasional perusahaan, dari keuangan hingga pengelolaan SDM.
+                    </p>
 
-                {/* Filters */}
-                <div className="flex flex-wrap gap-4 mt-8">
-                    {categories.map(cat => (
-                        <button
-                            key={cat}
-                            onClick={() => setFilter(cat)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${filter === cat
-                                ? 'bg-black text-white'
-                                : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                                }`}
+                    {/* Filters */}
+                    <div className="flex flex-wrap justify-center gap-3 mt-10">
+                        {categories.map(cat => (
+                            <button
+                                key={cat}
+                                onClick={() => setFilter(cat)}
+                                className={`px-6 py-2 rounded-full text-sm font-bold transition-all border ${filter === cat
+                                    ? 'bg-mekari-blue text-white border-mekari-blue shadow-lg'
+                                    : 'bg-white text-gray-500 border-gray-200 hover:border-mekari-blue hover:text-mekari-blue'
+                                    }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredProjects.map((project, index) => (
+                        <Link
+                            to={`/project/${project.id}`}
+                            key={project.id}
+                            className="group block h-full bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                         >
-                            {cat}
-                        </button>
+                            <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                                {/* Simple icon placeholder logic */}
+                                {['💰', '👥', '📝', '🤝', '🔐', '🎁'][index % 6]}
+                            </div>
+
+                            <div className="mb-2">
+                                <span className="text-xs font-bold text-mekari-blue uppercase tracking-wide">{project.category}</span>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-mekari-dark mb-3 group-hover:text-mekari-blue transition-colors">
+                                {project.title}
+                            </h3>
+
+                            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                                {project.description || 'Solusi terbaik untuk bisnis Anda.'}
+                            </p>
+
+                            <div className="flex items-center text-mekari-blue text-sm font-bold mt-auto">
+                                Pelajari Selengkapnya
+                                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </div>
+                        </Link>
                     ))}
                 </div>
-            </div>
 
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 [perspective:1000px]">
-                {filteredProjects.map((project, index) => (
-                    <Link
-                        to={`/project/${project.id}`}
-                        key={project.id}
-                        className="group block tracking-wide relative overflow-hidden rounded-xl break-inside-avoid opacity-0 animate-fadeIn hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out"
-                        style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
-                    >
-                        <div className="relative overflow-hidden w-full">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span className="text-white text-lg font-medium px-6 py-2 border border-white/30 backdrop-blur-sm rounded-full bg-white/10">View Project</span>
-                            </div>
-                        </div>
-                        <div className="mt-4 flex justify-between items-start">
-                            <div>
-                                <h3 className="text-lg font-bold group-hover:underline decoration-1 underline-offset-4">{project.title}</h3>
-                                <p className="text-sm text-gray-500">{project.location}</p>
-                            </div>
-                            <span className="text-xs font-mono text-gray-400">0{index + 1}</span>
-                        </div>
+                <div className="mt-24 bg-mekari-grey rounded-3xl p-12 text-center">
+                    <h2 className="text-3xl font-bold text-mekari-dark mb-4">Butuh Rekomendasi Produk?</h2>
+                    <p className="text-gray-500 mb-8 max-w-xl mx-auto">Konsultasikan kebutuhan bisnis Anda dengan tim ahli kami untuk mendapatkan solusi yang paling tepat.</p>
+                    <Link to="/appointment" className="inline-block px-8 py-4 bg-mekari-blue text-white rounded-xl font-bold shadow-lg hover:bg-blue-700 transition-colors">
+                        Hubungi Sales
                     </Link>
-                ))}
-            </div>
-
-            <div className="mt-24 text-center border-t border-gray-100 pt-16">
-                <h2 className="text-3xl font-bold mb-4">Have a project in mind?</h2>
-                <Link to="/appointment" className="inline-block px-8 py-4 bg-black text-white rounded-full font-bold hover:bg-gray-800 transition-transform hover:scale-105">
-                    Start a Conversation
-                </Link>
+                </div>
             </div>
         </div>
     );

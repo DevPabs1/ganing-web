@@ -1,56 +1,82 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { galleries } from '../data';
 import { motion } from 'framer-motion';
 
 const Gallery = () => {
+    // Mock blog/resource data
+    const resources = [
+        {
+            id: 1,
+            category: "Artikel",
+            title: "5 Strategi Efisiensi Operasional untuk Bisnis Manufaktur",
+            date: "12 Jan 2026",
+            image: "https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            id: 2,
+            category: "E-Book",
+            title: "Panduan Lengkap Pajak Perusahaan 2026",
+            date: "08 Jan 2026",
+            image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            id: 3,
+            category: "Studi Kasus",
+            title: "Bagaimana TechCorp Menghemat 40% Biaya HR dengan Automasi",
+            date: "05 Jan 2026",
+            image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop"
+        }
+    ];
+
     return (
-        <section id="gallery" className="py-32 px-6 bg-white overflow-hidden">
-            <div className="max-w-[90rem] mx-auto">
-                <div className="mb-24">
-                    <h2 className="text-6xl md:text-8xl font-bold mb-8 tracking-tighter leading-[0.9] text-black">
-                        Visual <br />
-                        <span className="text-gray-300">Journal.</span>
-                    </h2>
-                    <p className="text-xl md:text-2xl text-gray-500 max-w-2xl font-light leading-relaxed">
-                        A curated collection of visual experiments, personal works, and behind-the-scenes moments.
-                    </p>
+        <section id="gallery" className="py-24 px-6 bg-white">
+            <div className="container-custom">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
+                        <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-50 text-mekari-blue text-xs font-bold uppercase tracking-wider">
+                            Wawasan Bisnis
+                        </div>
+                        <h2 className="text-4xl font-extrabold text-mekari-dark">
+                            Resource Center
+                        </h2>
+                    </div>
+                    <Link to="/gallery" className="text-mekari-blue font-bold hover:underline">
+                        Lihat Semua Artikel →
+                    </Link>
                 </div>
 
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                    {galleries.map((item, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {resources.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: index % 3 * 0.1 }}
-                            className="break-inside-avoid"
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
                         >
-                            <Link
-                                to={`/gallery/${item.id}`}
-                                className="group cursor-pointer block relative overflow-hidden rounded-2xl"
-                            >
-                                <div className="relative w-full overflow-hidden">
+                            <Link to={`/gallery/${item.id}`} className="group block h-full">
+                                <div className="relative overflow-hidden rounded-2xl aspect-[16/9] mb-6">
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        loading="lazy"
-                                        className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 opacity-0 group-hover:opacity-100 flex items-center justify-center">
-                                        <div className="bg-white/90 backdrop-blur-md px-8 py-4 rounded-full transform translate-y-8 group-hover:translate-y-0 transition-all duration-300">
-                                            <span className="text-sm font-bold tracking-widest uppercase text-black">View</span>
-                                        </div>
+                                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-mekari-dark uppercase tracking-wide">
+                                        {item.category}
                                     </div>
                                 </div>
-                                <div className="mt-4 flex justify-between items-center px-2">
-                                    <h3 className="text-xl font-bold text-black tracking-tight group-hover:text-gray-600 transition-colors">
+
+                                <div className="space-y-3">
+                                    <span className="text-sm text-gray-400 font-medium">{item.date}</span>
+                                    <h3 className="text-xl font-bold text-mekari-dark group-hover:text-mekari-blue transition-colors line-clamp-2">
                                         {item.title}
                                     </h3>
-                                    <span className="text-xs font-mono text-gray-400 border border-gray-200 rounded-full px-3 py-1">
-                                        {index < 9 ? `0${index + 1}` : index + 1}
-                                    </span>
+                                    <p className="text-mekari-blue text-sm font-bold mt-2 flex items-center opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                                        Baca Selengkapnya
+                                        <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </p>
                                 </div>
                             </Link>
                         </motion.div>

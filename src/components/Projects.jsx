@@ -1,60 +1,97 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data';
+import { motion } from 'framer-motion';
+import FloatingElement from './FloatingElement';
 
 const Projects = () => {
+    // Mock categories for the "Ecosystem" feel
+    const categories = [
+        { id: 'finance', name: 'Finance & Accounting', icon: '📊' },
+        { id: 'hr', name: 'HR & Payroll', icon: '👥' },
+        { id: 'tax', name: 'Tax Compliance', icon: '📝' },
+        { id: 'crm', name: 'CRM & Sales', icon: '🤝' },
+    ];
+
     return (
         <section id="projects" className="py-32 px-6 bg-white">
-            <div className="max-w-[90rem] mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-                    <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black max-w-xl leading-[0.9]">
-                        Selected <br />
-                        <span className="text-gray-300">Works.</span>
+            <div className="container-custom">
+                <div className="text-center mb-24 max-w-3xl mx-auto">
+                    <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-50 text-mekari-blue text-xs font-bold uppercase tracking-wider">
+                        Product Ecosystem
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-mekari-dark mb-6">
+                        Solusi Komprehensif untuk <span className="text-mekari-blue">Setiap Divisi</span>
                     </h2>
-                    <p className="text-lg text-gray-500 max-w-sm mb-2">
-                        A curation of spaces that define modern living and architectural excellence.
+                    <p className="text-lg text-gray-500 leading-relaxed">
+                        Satu platform terintegrasi untuk mengelola operasional bisnis Anda, dari keuangan hingga sumber daya manusia.
                     </p>
                 </div>
 
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                    {projects.map((project, index) => (
-                        <Link
-                            to={`/project/${project.id}`}
-                            key={project.id}
-                            className="group cursor-pointer block break-inside-avoid"
-                        >
-                            <div className="relative mb-4 overflow-hidden rounded-2xl">
-                                <div className="aspect-[4/5] w-full">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center">
-                                    <div className="bg-white/90 backdrop-blur-md px-6 py-3 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                        <span className="text-sm font-semibold text-black">View Project</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-start pt-2">
-                                <div>
-                                    <h3 className="text-2xl font-bold text-black group-hover:text-gray-600 transition-colors">{project.title}</h3>
-                                    <p className="text-gray-400 text-sm mt-1 font-medium">{project.location}</p>
-                                </div>
-                                <span className="text-xs font-mono border border-gray-200 rounded-full px-3 py-1 text-gray-400 group-hover:border-black group-hover:text-black transition-colors">
-                                    0{index + 1}
-                                </span>
-                            </div>
-                        </Link>
+                {/* Categories Pills (Visual only for now) */}
+                <div className="flex flex-wrap justify-center gap-4 mb-16">
+                    <button className="px-6 py-2 rounded-full bg-mekari-dark text-white text-sm font-bold shadow-lg">All Products</button>
+                    {categories.map(cat => (
+                        <button key={cat.id} className="px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-500 text-sm font-bold hover:border-mekari-blue hover:text-mekari-blue transition-all">
+                            {cat.name}
+                        </button>
                     ))}
                 </div>
 
-                <div className="mt-24 text-center">
-                    <Link to="/projects" className="inline-block border-b-2 border-black pb-1 text-xl font-medium hover:text-gray-600 transition-colors">
-                        View All Projects
+                {/* Product Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <Link
+                                to={`/project/${project.id}`}
+                                className="group block h-full bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50/50 to-transparent rounded-bl-[100px] -z-0" />
+
+                                <div className="h-24 mb-6 flex items-start">
+                                    <FloatingElement
+                                        image={
+                                            project.category === 'Finance' ? 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=400' : // 3D Coin/Money
+                                                project.category === 'HR & Payroll' ? 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400' : // Team/People
+                                                    project.category === 'Tax' ? 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=400' : // Calculator
+                                                        project.category === 'CRM' ? 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&q=80&w=400' : // Handshake
+                                                            project.category === 'Productivity' ? 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400' : // Security/Shield
+                                                                'https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?auto=format&fit=crop&q=80&w=400' // Rocket
+                                        }
+                                        className="w-20 rounded-xl"
+                                        duration={4 + index} // Varied duration
+                                        yOffset={10}
+                                    />
+                                </div>
+
+                                <h3 className="text-xl font-bold text-mekari-dark mb-3 group-hover:text-mekari-blue transition-colors">
+                                    {project.title}
+                                </h3>
+
+                                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                                    {project.description ? project.description.substring(0, 100) + '...' : 'Otomatisasi proses bisnis Anda dengan solusi terdepan di industri.'}
+                                </p>
+
+                                <div className="flex items-center text-mekari-blue text-sm font-bold mt-auto">
+                                    Pelajari Selengkapnya
+                                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
+                            </Link>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="mt-20 text-center">
+                    <Link to="/projects" className="inline-flex items-center px-8 py-4 border border-mekari-blue text-mekari-blue font-bold rounded-xl hover:bg-blue-50 transition-all">
+                        Lihat Semua Produk
                     </Link>
                 </div>
             </div>

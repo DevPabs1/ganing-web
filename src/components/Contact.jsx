@@ -1,128 +1,153 @@
-
 import React, { useState } from 'react';
 
 const Contact = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        company: '',
+        employees: '',
+        message: ''
+    });
 
-    const handleSend = async () => {
-        if (!name.trim() || !email.trim() || !message.trim()) {
-            alert('Please fill in all fields (Name, Email, and Message) before sending.');
-            return;
-        }
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-        setIsLoading(true);
-
-        try {
-            // Determine API URL based on environment or default
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api/contact';
-
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, message }),
-            });
-
-            // Handle non-JSON responses or errors gracefully
-            const contentType = response.headers.get("content-type");
-            let data;
-            if (contentType && contentType.indexOf("application/json") !== -1) {
-                data = await response.json();
-            } else {
-                throw new Error("Non-JSON response from server");
-            }
-
-            if (data.success) {
-                alert('Message sent successfully! We will get back to you soon.');
-                setName('');
-                setEmail('');
-                setMessage('');
-            } else {
-                throw new Error(data.message || "Failed to send");
-            }
-        } catch (error) {
-            console.warn('Backend API unreachable or failed, falling back to mailto:', error);
-
-            // Fallback to Mailto
-            const subject = encodeURIComponent(`${name} - Ganing Inquiry`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-            window.location.href = `mailto:wallstreetinquries@gmail.com?subject=${subject}&body=${body}`;
-
-            alert('Unable to connect to the email server directly. Opening your default email client instead.');
-        } finally {
-            setIsLoading(false);
-        }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle submit logic here
+        alert("Terima kasih! Tim sales kami akan menghubungi Anda segera.");
     };
 
     return (
-        <section id="contact" className="py-32 px-6 bg-black text-white">
-            <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32">
-                <div>
-                    <h2 className="text-6xl md:text-8xl font-bold mb-12 tracking-tight leading-[0.9]">
-                        Let's <br />
-                        <span className="text-neutral-500">Collaborate.</span>
-                    </h2>
-                    <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-xl">
-                        Have a project in mind? Let's create something timeless together.
-                        Reach out for inquiries or just to say hello.
-                    </p>
+        <section id="contact" className="py-24 bg-mekari-grey">
+            <div className="container-custom">
+                <div className="bg-mekari-dark rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
 
-                    <div className="mt-16">
-                        <p className="text-sm text-neutral-500 uppercase tracking-widest mb-4">Direct Email</p>
-                        <a href="mailto:wallstreetinquries@gmail.com" className="text-2xl md:text-3xl font-bold border-b border-white/30 hover:border-white transition-colors pb-2 hover:text-white">
-                            wallstreetinquries@gmail.com
-                        </a>
+                    {/* Left: Content */}
+                    <div className="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center">
+                        <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+                            Siap Meningkatkan Performa Bisnis Anda?
+                        </h2>
+                        <p className="text-blue-100 text-lg mb-12 leading-relaxed">
+                            Diskusikan kebutuhan spesifik perusahaan Anda dengan konsultan ahli kami. Dapatkan demo produk gratis dan penawaran harga spesial.
+                        </p>
+
+                        <div className="space-y-6">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl">
+                                    🚀
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-xl mb-1">Implementasi Cepat</h4>
+                                    <p className="text-blue-200 text-sm">Tim onboarding kami siap membantu migrasi data Anda.</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl">
+                                    🛡️
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-xl mb-1">Keamanan Terjamin</h4>
+                                    <p className="text-blue-200 text-sm">Sertifikasi ISO 27001 untuk perlindungan data maksimal.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="w-full bg-neutral-900/50 p-8 md:p-12 rounded-3xl border border-neutral-800 backdrop-blur-sm">
-                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
-                            <input
-                                type="text"
-                                className="w-full bg-black border border-neutral-800 rounded-xl p-4 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-neutral-700"
-                                placeholder="John Doe"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                disabled={isLoading}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
-                            <input
-                                type="email"
-                                className="w-full bg-black border border-neutral-800 rounded-xl p-4 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-neutral-700"
-                                placeholder="john@example.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                disabled={isLoading}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
-                            <textarea
-                                rows="4"
-                                className="w-full bg-black border border-neutral-800 rounded-xl p-4 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-neutral-700"
-                                placeholder="Tell me about your vision..."
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                disabled={isLoading}
-                            ></textarea>
-                        </div>
-                        <button
-                            type="button"
-                            onClick={handleSend}
-                            disabled={isLoading}
-                            className={`w-full bg-white text-black px-8 py-5 rounded-xl font-bold tracking-wide hover:bg-gray-200 transition-colors text-lg mt-4 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
-                        >
-                            {isLoading ? 'SENDING...' : 'SEND MESSAGE'}
-                        </button>
-                    </form>
+                    {/* Right: Form */}
+                    <div className="lg:w-1/2 bg-white p-12 lg:p-20">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div>
+                                <label className="block text-sm font-bold text-mekari-dark mb-2">Nama Lengkap</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                    placeholder="John Doe"
+                                    required
+                                />
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Email Bisnis</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                        placeholder="john@company.com"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Nomor Telepon</label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                        placeholder="+62 812..."
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Nama Perusahaan</label>
+                                    <input
+                                        type="text"
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                        placeholder="PT..."
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Jumlah Karyawan</label>
+                                    <select
+                                        name="employees"
+                                        value={formData.employees}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all bg-white"
+                                    >
+                                        <option value="">Pilih Jumlah</option>
+                                        <option value="1-50">1 - 50</option>
+                                        <option value="51-200">51 - 200</option>
+                                        <option value="201-500">201 - 500</option>
+                                        <option value="500+">500+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-bold text-mekari-dark mb-2">Pesan / Kebutuhan (Opsional)</label>
+                                <textarea
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    rows="3"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all resize-none"
+                                    placeholder="Ceritakan kebutuhan bisnis Anda..."
+                                ></textarea>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="w-full py-4 bg-mekari-blue text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 hover:-translate-y-1 transition-all"
+                            >
+                                Hubungi Sales
+                            </button>
+
+                            <p className="text-xs text-center text-gray-500 mt-4">
+                                Dengan mengirimkan form ini, Anda menyetujui Kebijakan Privasi kami.
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

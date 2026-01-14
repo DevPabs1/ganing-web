@@ -6,6 +6,18 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                'mekari-blue': '#4459E1',
+                'mekari-dark': '#0C213B',
+                'mekari-grey': '#F8F9FA',
+                'mekari-purple': '#6B46C1',
+                'mekari-text': '#2D3748',
+            },
+            borderRadius: {
+                'xl': '12px',
+                '2xl': '16px',
+                '3xl': '24px',
+            },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
             },
