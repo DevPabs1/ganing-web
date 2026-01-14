@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Contact from '../components/Contact';
 
 const AboutPage = () => {
     return (
@@ -94,12 +95,15 @@ const AboutPage = () => {
             </div>
 
             {/* CTA */}
-            <div className="bg-gray-50 rounded-2xl p-12 md:p-24 text-center">
+            <div className="bg-gray-50 rounded-2xl p-12 md:p-24 text-center mb-12">
                 <h2 className="text-4xl md:text-6xl font-bold mb-8">Let's create something timeless.</h2>
                 <Link to="/appointment" className="inline-block px-10 py-5 bg-black text-white text-lg font-bold rounded-full hover:bg-gray-800 transition-all hover:scale-105">
                     Book a Session
                 </Link>
             </div>
+
+            {/* Contact Form Integration */}
+            <Contact />
         </div>
     );
 };

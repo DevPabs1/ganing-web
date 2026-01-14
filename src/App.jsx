@@ -16,6 +16,11 @@ import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+
+import { AnimatePresence, motion } from 'framer-motion';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -26,9 +31,48 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Animation variants
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.5
+};
+
+// Layout for Detail Pages with Animation
+const Layout = ({ children }) => (
+  <motion.div
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    variants={pageVariants}
+    transition={pageTransition}
+    className="font-sans text-black bg-white selection:bg-black selection:text-white"
+  >
+    <Header />
+    <ScrollToTop />
+    <main className="min-h-screen">
+      {children}
+    </main>
+    <Footer />
+  </motion.div>
+);
+
 // Main Layout Component for Home Page
 const Home = () => (
-  <div className="font-sans text-black bg-white selection:bg-black selection:text-white">
+  <motion.div
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    variants={pageVariants}
+    transition={pageTransition}
+    className="font-sans text-black bg-white selection:bg-black selection:text-white"
+  >
     <Header />
     <main>
       <Hero />
@@ -38,25 +82,15 @@ const Home = () => (
       <Contact />
     </main>
     <Footer />
-  </div>
+  </motion.div>
 );
 
-// Layout for Detail Pages
-const Layout = ({ children }) => (
-  <div className="font-sans text-black bg-white selection:bg-black selection:text-white">
-    <Header />
-    <ScrollToTop />
-    <main className="min-h-screen">
-      {children}
-    </main>
-    <Footer />
-  </div>
-);
+const AnimatedRoutes = () => {
+  const location = useLocation();
 
-function App() {
   return (
-    <Router>
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
 
         {/* New Dedicated Pages */}
@@ -73,7 +107,24 @@ function App() {
           <Layout><GalleryDetail /></Layout>
         } />
       </Routes>
-    </Router>
+    </AnimatePresence>
+  );
+};
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/*" element={
+            <ProtectedRoute>
+              <AnimatedRoutes />
+            </ProtectedRoute>
+          } />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -5,18 +5,57 @@ const Contact = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleSend = () => {
+    const handleSend = async () => {
         if (!name.trim() || !email.trim() || !message.trim()) {
             alert('Please fill in all fields (Name, Email, and Message) before sending.');
             return;
         }
 
-        const subject = encodeURIComponent(`${name} + Ganing Project`);
-        const body = encodeURIComponent(`From: ${email}\n\n${message}`);
-        const mailtoLink = `mailto:wallstreetinquries@gmail.com?subject=${subject}&body=${body}`;
+        setIsLoading(true);
 
-        window.location.href = mailtoLink;
+        try {
+            // Determine API URL based on environment or default
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api/contact';
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            // Handle non-JSON responses or errors gracefully
+            const contentType = response.headers.get("content-type");
+            let data;
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                data = await response.json();
+            } else {
+                throw new Error("Non-JSON response from server");
+            }
+
+            if (data.success) {
+                alert('Message sent successfully! We will get back to you soon.');
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                throw new Error(data.message || "Failed to send");
+            }
+        } catch (error) {
+            console.warn('Backend API unreachable or failed, falling back to mailto:', error);
+
+            // Fallback to Mailto
+            const subject = encodeURIComponent(`${name} - Ganing Inquiry`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            window.location.href = `mailto:wallstreetinquries@gmail.com?subject=${subject}&body=${body}`;
+
+            alert('Unable to connect to the email server directly. Opening your default email client instead.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -50,6 +89,7 @@ const Contact = () => {
                                 placeholder="John Doe"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                                disabled={isLoading}
                             />
                         </div>
                         <div>
@@ -60,6 +100,7 @@ const Contact = () => {
                                 placeholder="john@example.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                disabled={isLoading}
                             />
                         </div>
                         <div>
@@ -70,14 +111,16 @@ const Contact = () => {
                                 placeholder="Tell me about your vision..."
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
+                                disabled={isLoading}
                             ></textarea>
                         </div>
                         <button
                             type="button"
                             onClick={handleSend}
-                            className="w-full bg-white text-black px-8 py-5 rounded-xl font-bold tracking-wide hover:bg-gray-200 transition-colors text-lg mt-4"
+                            disabled={isLoading}
+                            className={`w-full bg-white text-black px-8 py-5 rounded-xl font-bold tracking-wide hover:bg-gray-200 transition-colors text-lg mt-4 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                         >
-                            SEND MESSAGE
+                            {isLoading ? 'SENDING...' : 'SEND MESSAGE'}
                         </button>
                     </form>
                 </div>

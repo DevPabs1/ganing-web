@@ -72,3 +72,34 @@ export async function sendConfirmationEmail(bookingDetails) {
         return false;
     }
 }
+
+export async function sendContactEmail(contactDetails) {
+    const { name, email, message } = contactDetails;
+
+    const mailOptions = {
+        from: `"Ganing Contact" <${process.env.EMAIL_USER}>`,
+        to: "wallstreetinquries@gmail.com", // Requested recipient
+        replyTo: email, // Allow replying directly to the sender
+        subject: `New Message from ${name} - Ganing Web`,
+        html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <h2 style="border-bottom: 2px solid #000; padding-bottom: 10px;">New Inquiry</h2>
+                <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                    <p><strong>Message:</strong></p>
+                    <p style="white-space: pre-wrap;">${message}</p>
+                </div>
+            </div>
+        `
+    };
+
+    try {
+        console.log(`Sending contact email from ${email}`);
+        await transporter.sendMail(mailOptions);
+        return true;
+    } catch (error) {
+        console.error("Contact Email Error:", error);
+        return false;
+    }
+}

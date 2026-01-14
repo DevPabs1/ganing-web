@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import QRCodeDisplay from './QRCodeDisplay';
+
 const Footer = () => {
     return (
         <footer className="bg-black text-white pt-24 pb-12 px-6 border-t border-neutral-900">
             <div className="max-w-[90rem] mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-16 mb-24">
                     <div className="col-span-1 md:col-span-2 space-y-8">
                         <a href="#" className="text-4xl font-extrabold tracking-tighter text-white block">
                             GANING
@@ -33,6 +35,11 @@ const Footer = () => {
                             <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
                             <li><a href="mailto:wallstreetinquries@gmail.com" className="hover:text-white transition-colors">Email</a></li>
                         </ul>
+                    </div>
+
+                    <div className="flex flex-col items-start">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-neutral-500 mb-8">Mobile</h4>
+                        <QRCodeDisplay size={120} url="https://DevPabs1.github.io/ganing-web" />
                     </div>
                 </div>
 
