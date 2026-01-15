@@ -1,7 +1,7 @@
 {
   "name": "ganing-web",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://DevPabs1.github.io/ganing-web",
   "type": "module",
   "scripts": {
