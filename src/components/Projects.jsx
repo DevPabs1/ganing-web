@@ -57,12 +57,12 @@ const Projects = () => {
                                 <div className="h-24 mb-6 flex items-start">
                                     <FloatingElement
                                         image={
-                                            project.category === 'Finance' ? 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=400' : // 3D Coin/Money
-                                                project.category === 'HR & Payroll' ? 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400' : // Team/People
-                                                    project.category === 'Tax' ? 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=400' : // Calculator
-                                                        project.category === 'CRM' ? 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&q=80&w=400' : // Handshake
-                                                            project.category === 'Productivity' ? 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400' : // Security/Shield
-                                                                'https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?auto=format&fit=crop&q=80&w=400' // Rocket
+                                            project.category === 'Finance' ? '/assets/3dicons/wallet.png' :
+                                                project.category === 'HR & Payroll' ? '/assets/3dicons/boy.png' :
+                                                    project.category === 'Tax' ? '/assets/3dicons/calculator.png' :
+                                                        project.category === 'CRM' ? '/assets/3dicons/target.png' :
+                                                            project.category === 'Productivity' ? '/assets/3dicons/rocket.png' :
+                                                                '/assets/3dicons/star.png'
                                         }
                                         className="w-20 rounded-xl"
                                         duration={4 + index} // Varied duration

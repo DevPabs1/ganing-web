@@ -10,21 +10,21 @@ const Gallery = () => {
             category: "Artikel",
             title: "5 Strategi Efisiensi Operasional untuk Bisnis Manufaktur",
             date: "12 Jan 2026",
-            image: "https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=2070&auto=format&fit=crop"
+            image: "/assets/3dicons/chart.png"
         },
         {
             id: 2,
             category: "E-Book",
             title: "Panduan Lengkap Pajak Perusahaan 2026",
             date: "08 Jan 2026",
-            image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"
+            image: "/assets/3dicons/file-text.png"
         },
         {
             id: 3,
             category: "Studi Kasus",
             title: "Bagaimana TechCorp Menghemat 40% Biaya HR dengan Automasi",
             date: "05 Jan 2026",
-            image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop"
+            image: "/assets/3dicons/computer.png"
         }
     ];
 

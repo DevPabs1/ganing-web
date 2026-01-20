@@ -7,25 +7,25 @@ const projectsMenu = [
   {
     title: "Web Development",
     description: "Full-stack web solutions",
-    icon: "💻",
+    icon: <img src="/assets/3dicons/computer.png" alt="Web" className="w-8 h-8" />,
     path: "/projects?cat=web"
   },
   {
     title: "Mobile Apps",
     description: "iOS & Android native apps",
-    icon: "📱",
+    icon: <img src="/assets/3dicons/mobile.png" alt="Mobile" className="w-6 h-6" />,
     path: "/projects?cat=mobile"
   },
   {
     title: "UI/UX Design",
     description: "User-centric interfaces",
-    icon: "🎨",
+    icon: <img src="/assets/3dicons/paint-kit.png" alt="Design" className="w-7 h-7" />,
     path: "/projects?cat=design"
   },
   {
     title: "System Integration",
     description: "Connecting complex APIs",
-    icon: "⚙️",
+    icon: <img src="/assets/3dicons/setting.png" alt="System" className="w-7 h-7" />,
     path: "/projects?cat=system"
   }
 ];
@@ -34,6 +34,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
   // Close menu on route change
   useEffect(() => {
@@ -85,7 +86,7 @@ const Header = () => {
                         to={item.path}
                         className="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors group/item"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-blue-50 text-mekari-blue flex items-center justify-center text-xl group-hover/item:scale-110 transition-transform">
+                        <div className="w-10 h-10 rounded-lg bg-blue-50 text-mekari-blue flex items-center justify-center group-hover/item:scale-110 transition-transform">
                           {item.icon}
                         </div>
                         <div>
@@ -114,9 +115,10 @@ const Header = () => {
             </Link>
 
             <div className="pl-4 border-l border-gray-200 ml-4 flex items-center gap-4">
-              <Link to="/login" className="text-sm font-bold text-mekari-dark hover:text-mekari-blue">
+              <a href={`${apiUrl}/auth/github`} className="text-sm font-bold text-mekari-dark hover:text-mekari-blue">
                 Login
-              </Link>
+              </a>
+
               <Link
                 to="/appointment"
                 className="px-5 py-2.5 bg-mekari-blue text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
@@ -163,7 +165,7 @@ const Header = () => {
                     to={item.path}
                     className="flex items-center gap-3 text-lg font-medium text-mekari-dark"
                   >
-                    <span className="text-2xl">{item.icon}</span>
+                    <span className="w-8 h-8 flex items-center justify-center">{item.icon}</span>
                     {item.title}
                   </Link>
                 ))}
@@ -176,9 +178,10 @@ const Header = () => {
               <Link to="/contact" className="text-lg font-medium text-mekari-dark">Support</Link>
 
               <div className="mt-8 space-y-4">
-                <Link to="/login" className="block w-full text-center py-3 text-mekari-dark font-bold border border-gray-200 rounded-xl">
+                <a href={`${apiUrl}/auth/github`} className="block w-full text-center py-3 text-mekari-dark font-bold border border-gray-200 rounded-xl">
                   Login
-                </Link>
+                </a>
+
                 <Link to="/appointment" className="block w-full text-center py-3 bg-mekari-blue text-white font-bold rounded-xl shadow-lg">
                   Schedule Demo
                 </Link>

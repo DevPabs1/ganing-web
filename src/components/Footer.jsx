@@ -46,11 +46,16 @@ const Footer = () => {
                         </ul>
                     </div>
 
+
+
                     {/* Support Col */}
                     <div>
                         <h4 className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6">Dukungan</h4>
                         <ul className="space-y-4 text-sm font-medium text-gray-300">
-                            <li><a href="#" className="hover:text-white transition-colors">Pusat Bantuan</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2">
+                                <img src="/assets/3dicons/chat.png" alt="" className="w-5 h-5" />
+                                Pusat Bantuan
+                            </a></li>
                             <li><a href="#" className="hover:text-white transition-colors">Dokumentasi API</a></li>
                             <li><a href="#" className="hover:text-white transition-colors">Status Server</a></li>
                             <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
@@ -73,7 +78,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 };
 

@@ -25,7 +25,6 @@ import { sendConfirmationEmail, sendContactEmail } from './emailClient.js';
 app.get('/', (req, res) => {
     res.send('Ganing Web Booking API is running');
 });
-
 // GitHub Auth Routes
 app.get('/api/auth/github', (req, res) => {
     const { GITHUB_CLIENT_ID } = process.env;
@@ -75,16 +74,24 @@ app.get('/api/auth/github/callback', async (req, res) => {
         const permissions = repoResponse.data.permissions;
 
         if (permissions && (permissions.push || permissions.admin)) {
-            // Redirect to frontend (locally running on 5173 usually)
-            res.redirect(`http://localhost:5173/?token=${accessToken}&username=${username}`);
+            // Redirect to frontend
+            const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+            res.redirect(`${clientUrl}/?token=${accessToken}&username=${username}`);
         } else {
-            res.redirect('http://localhost:5173/login?error=access_denied');
+            const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+            // Even if access denied, we might want to redirect back to home with an error, 
+            // or just back to home if we don't have a login page anymore. 
+            // For now, let's redirect to home with error parameter.
+            res.redirect(`${clientUrl}/?error=access_denied`);
         }
     } catch (error) {
         console.error('GitHub Auth Error:', error.response?.data || error.message);
-        res.redirect('http://localhost:5173/login?error=auth_failed');
+        const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+        res.redirect(`${clientUrl}/?error=auth_failed`);
     }
 });
+// GitHub Auth Routes
+
 
 // ... (previous code)
 

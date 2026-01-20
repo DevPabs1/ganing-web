@@ -55,9 +55,12 @@ const ProjectsPage = () => {
                             key={project.id}
                             className="group block h-full bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                         >
-                            <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                                {/* Simple icon placeholder logic */}
-                                {['💰', '👥', '📝', '🤝', '🔐', '🎁'][index % 6]}
+                            <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center p-2 mb-6 group-hover:scale-110 transition-transform">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-contain"
+                                />
                             </div>
 
                             <div className="mb-2">

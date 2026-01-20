@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import TokenHandler from './components/TokenHandler';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
@@ -19,9 +21,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
-import LoginPage from './pages/LoginPage';
-import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
+
 
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -121,13 +121,9 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <TokenHandler />
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/*" element={
-            <ProtectedRoute>
-              <AnimatedRoutes />
-            </ProtectedRoute>
-          } />
+          <Route path="/*" element={<AnimatedRoutes />} />
         </Routes>
       </Router>
     </AuthProvider>
