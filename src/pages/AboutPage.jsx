@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Contact from '../components/Contact';
+import FloatingElement from '../components/FloatingElement';
 
 const AboutPage = () => {
     return (
@@ -11,7 +12,7 @@ const AboutPage = () => {
                     <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9] relative">
                         We Craft<br />Visual<br />Narratives
                         <div className="absolute top-0 right-10 w-24 hidden lg:block opacity-90">
-                            <FloatingElement image="/assets/3dicons/pencil.png" duration={6} yOffset={20} />
+                            <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/pencil.png`} duration={6} yOffset={20} />
                         </div>
                     </h1>
                 </div>
@@ -33,7 +34,7 @@ const AboutPage = () => {
 
             {/* Floating Camera Decoration */}
             <div className="absolute right-0 top-[80vh] w-48 opacity-40 z-[-1] hidden lg:block">
-                <FloatingElement image="/assets/3dicons/camera.png" duration={8} yOffset={-30} />
+                <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/camera.png`} duration={8} yOffset={-30} />
             </div>
 
             {/* Approach Section */}

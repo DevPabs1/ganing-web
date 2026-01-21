@@ -68,14 +68,14 @@ const Hero = () => {
                     <div className="relative w-full max-w-[600px]">
                         {/* Main 3D Composition */}
                         <FloatingElement
-                            image="/assets/3dicons/computer.png"
+                            image={`${import.meta.env.BASE_URL}assets/3dicons/computer.png`}
                             className="z-10 relative drop-shadow-2xl rounded-2xl w-full"
                             duration={8}
                         />
 
                         {/* Floating Decorative Elements */}
                         <FloatingElement
-                            image="/assets/3dicons/chart.png"
+                            image={`${import.meta.env.BASE_URL}assets/3dicons/chart.png`}
                             className="absolute -bottom-10 -left-10 w-32 z-20"
                             delay={1}
                             duration={5}
@@ -83,7 +83,7 @@ const Hero = () => {
                         />
 
                         <FloatingElement
-                            image="/assets/3dicons/sheild.png"
+                            image={`${import.meta.env.BASE_URL}assets/3dicons/sheild.png`}
                             className="absolute -top-10 -right-5 w-24 z-0 opacity-80 blur-[1px]"
                             delay={2}
                             duration={7}

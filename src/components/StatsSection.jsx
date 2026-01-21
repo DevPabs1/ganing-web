@@ -13,10 +13,10 @@ const StatsSection = () => {
         <section className="py-20 bg-mekari-dark text-white relative overflow-hidden">
             {/* 3D Background Decor */}
             <div className="absolute top-0 right-0 w-64 opacity-10 pointer-events-none">
-                <FloatingElement image="/assets/3dicons/money-bag.png" duration={10} yOffset={30} />
+                <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/money-bag.png`} duration={10} yOffset={30} />
             </div>
             <div className="absolute bottom-0 left-10 w-48 opacity-5 pointer-events-none">
-                <FloatingElement image="/assets/3dicons/target.png" duration={12} yOffset={20} />
+                <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/target.png`} duration={12} yOffset={20} />
             </div>
 
             <div className="container-custom relative z-10">

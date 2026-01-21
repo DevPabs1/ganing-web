@@ -36,7 +36,7 @@ const Contact = () => {
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
                                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                                    <img src="/assets/3dicons/rocket.png" alt="Fast" className="w-8 h-8" />
+                                    <img src={`${import.meta.env.BASE_URL}assets/3dicons/rocket.png`} alt="Fast" className="w-8 h-8" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-xl mb-1">Implementasi Cepat</h4>
@@ -45,7 +45,7 @@ const Contact = () => {
                             </div>
                             <div className="flex items-start gap-4">
                                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                                    <img src="/assets/3dicons/sheild.png" alt="Secure" className="w-8 h-8" />
+                                    <img src={`${import.meta.env.BASE_URL}assets/3dicons/sheild.png`} alt="Secure" className="w-8 h-8" />
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-xl mb-1">Keamanan Terjamin</h4>

@@ -57,12 +57,12 @@ const Projects = () => {
                                 <div className="h-24 mb-6 flex items-start">
                                     <FloatingElement
                                         image={
-                                            project.category === 'Finance' ? '/assets/3dicons/wallet.png' :
-                                                project.category === 'HR & Payroll' ? '/assets/3dicons/boy.png' :
-                                                    project.category === 'Tax' ? '/assets/3dicons/calculator.png' :
-                                                        project.category === 'CRM' ? '/assets/3dicons/target.png' :
-                                                            project.category === 'Productivity' ? '/assets/3dicons/rocket.png' :
-                                                                '/assets/3dicons/star.png'
+                                            project.category === 'Finance' ? `${import.meta.env.BASE_URL}assets/3dicons/wallet.png` :
+                                                project.category === 'HR & Payroll' ? `${import.meta.env.BASE_URL}assets/3dicons/boy.png` :
+                                                    project.category === 'Tax' ? `${import.meta.env.BASE_URL}assets/3dicons/calculator.png` :
+                                                        project.category === 'CRM' ? `${import.meta.env.BASE_URL}assets/3dicons/target.png` :
+                                                            project.category === 'Productivity' ? `${import.meta.env.BASE_URL}assets/3dicons/rocket.png` :
+                                                                `${import.meta.env.BASE_URL}assets/3dicons/star.png`
                                         }
                                         className="w-20 rounded-xl"
                                         duration={4 + index} // Varied duration

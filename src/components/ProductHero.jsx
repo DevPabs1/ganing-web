@@ -71,10 +71,10 @@ const ProductHero = ({ title, description, benefits, image, ctaPrimary, ctaSecon
                                 <img src={image} alt={title} className="w-full h-auto object-cover relative z-10" />
                                 {/* 3D Decoration Overlay */}
                                 <div className="absolute -bottom-10 -right-10 w-40 z-20 pointer-events-none">
-                                    <FloatingElement image="/assets/3dicons/chart.png" duration={8} yOffset={20} />
+                                    <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/chart.png`} duration={8} yOffset={20} />
                                 </div>
                                 <div className="absolute -top-6 -left-6 w-24 z-20 pointer-events-none opacity-80">
-                                    <FloatingElement image="/assets/3dicons/rocket.png" duration={6} yOffset={-15} />
+                                    <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/rocket.png`} duration={6} yOffset={-15} />
                                 </div>
                             </>
                         ) : (
@@ -94,7 +94,7 @@ const ProductHero = ({ title, description, benefits, image, ctaPrimary, ctaSecon
                                 </div>
                                 {/* Floating Element replaced with 3D */}
                                 <div className="absolute bottom-8 right-8 w-24 z-20">
-                                    <FloatingElement image="/assets/3dicons/chart.png" duration={5} />
+                                    <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/chart.png`} duration={5} />
                                 </div>
                             </div>
                         )}

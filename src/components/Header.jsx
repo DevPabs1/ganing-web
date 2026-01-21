@@ -7,25 +7,25 @@ const projectsMenu = [
   {
     title: "Web Development",
     description: "Full-stack web solutions",
-    icon: <img src="/assets/3dicons/computer.png" alt="Web" className="w-8 h-8" />,
+    icon: <img src={`${import.meta.env.BASE_URL}assets/3dicons/computer.png`} alt="Web" className="w-8 h-8" />,
     path: "/projects?cat=web"
   },
   {
     title: "Mobile Apps",
     description: "iOS & Android native apps",
-    icon: <img src="/assets/3dicons/mobile.png" alt="Mobile" className="w-6 h-6" />,
+    icon: <img src={`${import.meta.env.BASE_URL}assets/3dicons/mobile.png`} alt="Mobile" className="w-6 h-6" />,
     path: "/projects?cat=mobile"
   },
   {
     title: "UI/UX Design",
     description: "User-centric interfaces",
-    icon: <img src="/assets/3dicons/paint-kit.png" alt="Design" className="w-7 h-7" />,
+    icon: <img src={`${import.meta.env.BASE_URL}assets/3dicons/paint-kit.png`} alt="Design" className="w-7 h-7" />,
     path: "/projects?cat=design"
   },
   {
     title: "System Integration",
     description: "Connecting complex APIs",
-    icon: <img src="/assets/3dicons/setting.png" alt="System" className="w-7 h-7" />,
+    icon: <img src={`${import.meta.env.BASE_URL}assets/3dicons/setting.png`} alt="System" className="w-7 h-7" />,
     path: "/projects?cat=system"
   }
 ];

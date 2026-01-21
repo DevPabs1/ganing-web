@@ -63,14 +63,18 @@ const About = () => {
                             <div className="space-y-4 mt-8">
                                 <div className="h-48 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 flex flex-col justify-end overflow-hidden relative">
                                     <div className="absolute top-4 right-4 w-16 opacity-100">
-                                        <FloatingElement image="/assets/3dicons/bulb.png" duration={6} />
+                                        <div className="absolute top-4 right-4 w-16 opacity-100">
+                                            <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/bulb.png`} duration={6} />
+                                        </div>
                                     </div>
                                     <h4 className="font-bold text-mekari-dark mt-auto relative z-10">Inovasi</h4>
                                     <p className="text-xs text-gray-500 relative z-10">Selalu berkembang</p>
                                 </div>
                                 <div className="h-64 bg-mekari-dark rounded-2xl shadow-lg p-6 flex flex-col justify-end overflow-hidden relative">
                                     <div className="absolute top-8 right-0 left-0 mx-auto w-24 opacity-100">
-                                        <FloatingElement image="/assets/3dicons/puzzle.png" duration={5} />
+                                        <div className="absolute top-8 right-0 left-0 mx-auto w-24 opacity-100">
+                                            <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/puzzle.png`} duration={5} />
+                                        </div>
                                     </div>
                                     <h4 className="font-bold text-white mt-auto relative z-10">Kolaborasi</h4>
                                     <p className="text-xs text-gray-400 relative z-10">Kerja sama tim</p>
@@ -79,14 +83,18 @@ const About = () => {
                             <div className="space-y-4">
                                 <div className="h-64 bg-mekari-blue rounded-2xl shadow-lg p-6 flex flex-col justify-end overflow-hidden relative">
                                     <div className="absolute top-10 right-0 left-0 mx-auto w-20 opacity-100">
-                                        <FloatingElement image="/assets/3dicons/sheild.png" duration={7} />
+                                        <div className="absolute top-10 right-0 left-0 mx-auto w-20 opacity-100">
+                                            <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/sheild.png`} duration={7} />
+                                        </div>
                                     </div>
                                     <h4 className="font-bold text-white mt-auto relative z-10">Integritas</h4>
                                     <p className="text-xs text-blue-200 relative z-10">Terpercaya & aman</p>
                                 </div>
                                 <div className="h-48 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 flex flex-col justify-end overflow-hidden relative">
                                     <div className="absolute top-4 right-4 w-16 opacity-100">
-                                        <FloatingElement image="/assets/3dicons/key.png" duration={8} />
+                                        <div className="absolute top-4 right-4 w-16 opacity-100">
+                                            <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/key.png`} duration={8} />
+                                        </div>
                                     </div>
                                     <h4 className="font-bold text-mekari-dark mt-auto relative z-10">Solusi</h4>
                                     <p className="text-xs text-gray-500 relative z-10">Berorientasi hasil</p>
