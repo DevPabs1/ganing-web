@@ -7,11 +7,11 @@ export default {
     theme: {
         extend: {
             colors: {
-                'mekari-blue': '#4459E1',
-                'mekari-dark': '#0C213B',
-                'mekari-grey': '#F8F9FA',
-                'mekari-purple': '#6B46C1',
-                'mekari-text': '#2D3748',
+                // 'mekari-blue': '#4459E1', // REMOVED for B&W Theme
+                // 'mekari-dark': '#0C213B', // REMOVED for B&W Theme
+                // 'mekari-grey': '#F8F9FA', // REMOVED for B&W Theme
+                // 'mekari-purple': '#6B46C1', // REMOVED for B&W Theme
+                // 'mekari-text': '#2D3748', // REMOVED for B&W Theme
             },
             borderRadius: {
                 'xl': '12px',

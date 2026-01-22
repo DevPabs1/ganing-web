@@ -15,10 +15,10 @@ const ProjectDetail = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-white">
+            <div className="min-h-screen flex items-center justify-center bg-black">
                 <div className="text-center">
-                    <h2 className="text-4xl font-bold mb-6 text-mekari-dark">Project Not Found</h2>
-                    <Link to="/" className="text-mekari-blue font-bold hover:underline">Return Home</Link>
+                    <h2 className="text-4xl font-bold mb-6 text-white">Project Not Found</h2>
+                    <Link to="/" className="text-white font-bold hover:underline">Return Home</Link>
                 </div>
             </div>
         );
@@ -38,7 +38,7 @@ const ProjectDetail = () => {
             id: 'overview',
             tagline: 'Ringkasan Project',
             title: `Tentang ${project.title}`,
-            description: `<p class="mb-4">${project.description || 'Solusi komprehensif untuk kebutuhan bisnis modern Anda.'}</p><p>Project ini dirancang dengan pendekatan user-centric untuk memastikan kemudahan penggunaan dan skalabilitas maksimal.</p>`,
+            description: `<p class="mb-4 text-gray-400">${project.description || 'Solusi komprehensif untuk kebutuhan bisnis modern Anda.'}</p><p class="text-gray-400">Project ini dirancang dengan pendekatan user-centric untuk memastikan kemudahan penggunaan dan skalabilitas maksimal.</p>`,
             image: project.image,
         },
         {
@@ -59,7 +59,7 @@ const ProjectDetail = () => {
     ];
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-black min-h-screen text-white">
             {/* 1. Product Hero */}
             <ProductHero
                 title={project.title}
@@ -84,7 +84,7 @@ const ProjectDetail = () => {
             </div>
 
             {/* 4. Bottom CTA */}
-            <section className="py-24 bg-mekari-blue text-center">
+            <section className="py-24 bg-black border-t border-white/10 text-center">
                 <div className="container-custom">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Siap Trasformasi Bisnis Anda?</h2>
                     <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
@@ -92,7 +92,7 @@ const ProjectDetail = () => {
                     </p>
                     <Link
                         to="/appointment"
-                        className="inline-block px-8 py-4 bg-white text-mekari-blue font-bold rounded-xl shadow-lg hover:bg-gray-50 transition-all hover:-translate-y-1"
+                        className="inline-block px-8 py-4 bg-white text-black font-bold rounded-xl shadow-lg hover:bg-gray-100 transition-all hover:-translate-y-1"
                     >
                         Konsultasi Gratis Sekarang
                     </Link>

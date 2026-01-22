@@ -8,28 +8,69 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-white text-mekari-text antialiased;
+    @apply bg-black text-white antialiased;
     line-height: 1.6;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-mekari-dark font-bold tracking-tight;
+
+  ::selection {
+    @apply bg-white text-black;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-white font-bold tracking-tight;
   }
 }
 
 @layer utilities {
   .glass-nav {
-    @apply bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300;
+    @apply bg-black/60 backdrop-blur-3xl border-b border-white/5 shadow-2xl shadow-black/50 transition-all duration-500 supports-[backdrop-filter]:bg-black/40;
   }
-  
+
   .mekari-shadow {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
-  
+
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 md:px-12;
+    @apply max-w-[1400px] mx-auto px-6 md:px-12;
+  }
+
+  /* 3D Icon Theme Adaptation */
+  .icon-3d {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+  }
+
+  .icon-3d:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    /* Slight scale on hover for 3D effect */
+  }
+
+  /* Custom Scrollbar for Vision Pro Feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+    border: 2px solid #000;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }

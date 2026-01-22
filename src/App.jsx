@@ -21,6 +21,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
+import NotFound from './pages/NotFound';
 
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -55,7 +56,7 @@ const Layout = ({ children }) => (
     exit="exit"
     variants={pageVariants}
     transition={pageTransition}
-    className="font-sans text-black bg-white selection:bg-black selection:text-white"
+    className="font-sans text-white bg-black selection:bg-white selection:text-black"
   >
     <Header />
     <ScrollToTop />
@@ -74,7 +75,7 @@ const Home = () => (
     exit="exit"
     variants={pageVariants}
     transition={pageTransition}
-    className="font-sans text-mekari-text bg-white selection:bg-mekari-blue selection:text-white"
+    className="font-sans text-white bg-black selection:bg-white selection:text-black"
   >
     <Header />
     <main>
@@ -112,6 +113,7 @@ const AnimatedRoutes = () => {
         <Route path="/gallery/:id" element={
           <Layout><GalleryDetail /></Layout>
         } />
+        <Route path="*" element={<Layout><NotFound /></Layout>} />
       </Routes>
     </AnimatePresence>
   );

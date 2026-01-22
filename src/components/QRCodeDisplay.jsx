@@ -7,7 +7,7 @@ const QRCodeDisplay = ({ url = "https://DevPabs1.github.io/ganing-web", size = 1
             <div className="p-3 bg-white rounded-xl shadow-lg inline-block transition-transform hover:scale-105 duration-300">
                 <QRCode value={url} size={size} />
             </div>
-            <span className="text-xs text-secondary/60 font-light tracking-wide">Scan to view on mobile</span>
+            <span className="text-xs text-gray-400 font-light tracking-wide">Scan to view on mobile</span>
         </div>
     );
 };

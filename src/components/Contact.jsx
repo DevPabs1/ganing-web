@@ -20,52 +20,52 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-24 bg-mekari-grey">
+        <section id="contact" className="py-24 bg-black border-t border-white/10">
             <div className="container-custom">
-                <div className="bg-mekari-dark rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+                <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row backdrop-blur-sm">
 
                     {/* Left: Content */}
-                    <div className="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center">
+                    <div className="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center bg-black/40">
                         <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
                             Siap Meningkatkan Performa Bisnis Anda?
                         </h2>
-                        <p className="text-blue-100 text-lg mb-12 leading-relaxed">
+                        <p className="text-gray-400 text-lg mb-12 leading-relaxed">
                             Diskusikan kebutuhan spesifik perusahaan Anda dengan konsultan ahli kami. Dapatkan demo produk gratis dan penawaran harga spesial.
                         </p>
 
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/10 icon-3d">
                                     <img src={`${import.meta.env.BASE_URL}assets/3dicons/rocket.png`} alt="Fast" className="w-8 h-8" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-xl mb-1">Implementasi Cepat</h4>
-                                    <p className="text-blue-200 text-sm">Tim onboarding kami siap membantu migrasi data Anda.</p>
+                                    <h4 className="font-bold text-xl mb-1 text-white">Implementasi Cepat</h4>
+                                    <p className="text-gray-400 text-sm">Tim onboarding kami siap membantu migrasi data Anda.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/10 icon-3d">
                                     <img src={`${import.meta.env.BASE_URL}assets/3dicons/sheild.png`} alt="Secure" className="w-8 h-8" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-xl mb-1">Keamanan Terjamin</h4>
-                                    <p className="text-blue-200 text-sm">Sertifikasi ISO 27001 untuk perlindungan data maksimal.</p>
+                                    <h4 className="font-bold text-xl mb-1 text-white">Keamanan Terjamin</h4>
+                                    <p className="text-gray-400 text-sm">Sertifikasi ISO 27001 untuk perlindungan data maksimal.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Right: Form */}
-                    <div className="lg:w-1/2 bg-white p-12 lg:p-20">
+                    <div className="lg:w-1/2 bg-white/5 p-12 lg:p-20 backdrop-blur-md">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label className="block text-sm font-bold text-mekari-dark mb-2">Nama Lengkap</label>
+                                <label className="block text-sm font-bold text-gray-300 mb-2">Nama Lengkap</label>
                                 <input
                                     type="text"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:border-white focus:ring-2 focus:ring-white/20 outline-none transition-all text-white placeholder-gray-500"
                                     placeholder="John Doe"
                                     required
                                 />
@@ -73,23 +73,23 @@ const Contact = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Email Bisnis</label>
+                                    <label className="block text-sm font-bold text-gray-300 mb-2">Email Bisnis</label>
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:border-white focus:ring-2 focus:ring-white/20 outline-none transition-all text-white placeholder-gray-500"
                                         placeholder="john@company.com"
                                         required
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Nomor Telepon</label>
+                                    <label className="block text-sm font-bold text-gray-300 mb-2">Nomor Telepon</label>
                                     <input
                                         type="tel"
                                         name="phone"
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:border-white focus:ring-2 focus:ring-white/20 outline-none transition-all text-white placeholder-gray-500"
                                         placeholder="+62 812..."
                                     />
                                 </div>
@@ -97,50 +97,50 @@ const Contact = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Nama Perusahaan</label>
+                                    <label className="block text-sm font-bold text-gray-300 mb-2">Nama Perusahaan</label>
                                     <input
                                         type="text"
                                         name="company"
                                         value={formData.company}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:border-white focus:ring-2 focus:ring-white/20 outline-none transition-all text-white placeholder-gray-500"
                                         placeholder="PT..."
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-bold text-mekari-dark mb-2">Jumlah Karyawan</label>
+                                    <label className="block text-sm font-bold text-gray-300 mb-2">Jumlah Karyawan</label>
                                     <select
                                         name="employees"
                                         value={formData.employees}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all bg-white"
+                                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:border-white focus:ring-2 focus:ring-white/20 outline-none transition-all text-white"
                                     >
-                                        <option value="">Pilih Jumlah</option>
-                                        <option value="1-50">1 - 50</option>
-                                        <option value="51-200">51 - 200</option>
-                                        <option value="201-500">201 - 500</option>
-                                        <option value="500+">500+</option>
+                                        <option value="" className="bg-black text-white">Pilih Jumlah</option>
+                                        <option value="1-50" className="bg-black text-white">1 - 50</option>
+                                        <option value="51-200" className="bg-black text-white">51 - 200</option>
+                                        <option value="201-500" className="bg-black text-white">201 - 500</option>
+                                        <option value="500+" className="bg-black text-white">500+</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-bold text-mekari-dark mb-2">Pesan / Kebutuhan (Opsional)</label>
+                                <label className="block text-sm font-bold text-gray-300 mb-2">Pesan / Kebutuhan (Opsional)</label>
                                 <textarea
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows="3"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-mekari-blue focus:ring-2 focus:ring-blue-100 outline-none transition-all resize-none"
+                                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:border-white focus:ring-2 focus:ring-white/20 outline-none transition-all resize-none text-white placeholder-gray-500"
                                     placeholder="Ceritakan kebutuhan bisnis Anda..."
                                 ></textarea>
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-mekari-blue text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 hover:-translate-y-1 transition-all"
+                                className="w-full py-4 bg-white text-black font-bold rounded-xl shadow-lg hover:bg-gray-200 hover:-translate-y-1 transition-all"
                             >
-                                Hubungi Sales
+                                Hubungi Kami
                             </button>
 
                             <p className="text-xs text-center text-gray-500 mt-4">

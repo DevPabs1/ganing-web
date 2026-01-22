@@ -10,12 +10,12 @@ const StatsSection = () => {
     ];
 
     return (
-        <section className="py-20 bg-mekari-dark text-white relative overflow-hidden">
+        <section className="py-20 bg-black text-white relative overflow-hidden border-t border-white/10">
             {/* 3D Background Decor */}
-            <div className="absolute top-0 right-0 w-64 opacity-10 pointer-events-none">
+            <div className="absolute top-0 right-0 w-64 opacity-20 pointer-events-none icon-3d">
                 <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/money-bag.png`} duration={10} yOffset={30} />
             </div>
-            <div className="absolute bottom-0 left-10 w-48 opacity-5 pointer-events-none">
+            <div className="absolute bottom-0 left-10 w-48 opacity-20 pointer-events-none icon-3d">
                 <FloatingElement image={`${import.meta.env.BASE_URL}assets/3dicons/target.png`} duration={12} yOffset={20} />
             </div>
 
@@ -24,7 +24,7 @@ const StatsSection = () => {
                     {stats.map((stat, idx) => (
                         <div key={idx} className="space-y-2">
                             <h3 className="text-4xl lg:text-5xl font-bold text-white tracking-tight">{stat.value}</h3>
-                            <p className="text-blue-200 font-medium">{stat.label}</p>
+                            <p className="text-gray-400 font-medium">{stat.label}</p>
                         </div>
                     ))}
                 </div>

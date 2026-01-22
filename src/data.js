@@ -94,3 +94,30 @@ export const galleries = [
         date: '20 Dec 2025'
     }
 ];
+
+export const galleryDetailContent = {
+    'finance-guide': {
+        content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
+        tags: ['Finance', 'Accounting', 'Tips']
+    },
+    'hr-trends': {
+        content: '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
+        tags: ['HR', 'Remote Work', 'Trends']
+    },
+    'tax-update': {
+        content: '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>',
+        tags: ['Tax', 'Regulation', 'Compliance']
+    },
+    'crm-strategy': {
+        content: '<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+        tags: ['CRM', 'Sales', 'Strategy']
+    },
+    'digital-trans': {
+        content: '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>',
+        tags: ['Digital', 'Transformation', 'SME']
+    },
+    'security': {
+        content: '<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>',
+        tags: ['Security', 'Cloud', 'Data']
+    }
+};
